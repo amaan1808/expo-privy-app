@@ -1,0 +1,87 @@
+{
+  "expo": {
+    "name": "Rabbit",
+    "slug": "getrabbit-app",
+    "version": "1.0.6",
+    "orientation": "portrait",
+    "icon": "./assets/images/rabbit.png",
+    "scheme": "rabbitapp",
+    "userInterfaceStyle": "dark",
+    "splash": {
+      "image": "./assets/images/splash.png",
+      "resizeMode": "cover",
+      "backgroundColor": "#000000"
+    },
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.getrabbit.rabbit"
+    },
+    "android": {
+      "versionCode": 4,
+      "intentFilters": [
+        {
+          "action": "VIEW",
+          "autoVerify": true,
+          "data": [
+            {
+              "scheme": "https",
+              "host": "getrabbit.app",
+              "pathPattern": ".*"
+            }
+          ],
+          "category": ["BROWSABLE", "DEFAULT"]
+        }
+      ],
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/images/rabbit.png",
+        "backgroundColor": "#000000"
+      },
+      "package": "com.dev_getrabbit.getrabbitapp"
+    },
+    "web": {
+      "bundler": "metro",
+      "output": "static",
+      "favicon": "./assets/images/rabbit.png"
+    },
+    "plugins": [
+      "expo-router",
+      "expo-secure-store",
+      [
+        "@sentry/react-native/expo",
+        {
+          "organization": "follows",
+          "project": "rabbit-mobileapp"
+        }
+      ],
+      [
+        "expo-font",
+        {
+          "fonts": [
+            "./assets/fonts/Sora-Regular.ttf",
+            "./assets/fonts/Sora-Bold.ttf",
+            "./assets/fonts/Sora-Light.ttf",
+            "./assets/fonts/Sora-Medium.ttf",
+            "./assets/fonts/Sora-SemiBold.ttf"
+          ]
+        }
+      ]
+    ],
+    "experiments": {
+      "typedRoutes": true
+    },
+    "extra": {
+      "router": {
+        "origin": false
+      },
+      "eas": {
+        "projectId": "d146f474-068c-4ece-8d37-81e58254a086"
+      }
+    },
+    "runtimeVersion": {
+      "policy": "appVersion"
+    },
+    "updates": {
+      "url": "https://u.expo.dev/452ce814-77d8-4a90-84ae-6b4c2cbf60ea"
+    }
+  }
+}
