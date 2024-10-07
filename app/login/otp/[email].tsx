@@ -13,6 +13,8 @@ import RabbitBackButton from "@components/RabbitBackButton";
 import RabbitButton from "@components/RabbitButton";
 import { useLoginWithEmail } from "@privy-io/expo";
 import { privy } from "@app/_layout";
+import { usePrivy } from "@privy-io/expo";
+import * as SecureStore from "expo-secure-store";
 
 export default function OTP() {
   const [otp, setOtp] = useState("");
@@ -21,10 +23,12 @@ export default function OTP() {
   const { setAccessToken } = usePersistentStore();
   const { colors } = useColors();
 
+  const { getAccessToken } = usePrivy();
   const updateTokens = async () => {
     try {
       console.log("updateTokens called");
-      const accessToken = await privy.getAccessToken();
+      console.log(await SecureStore.getItemAsync("privy-token"), "privy-token");
+      const accessToken = await getAccessToken();
       console.log(accessToken, "accessToken");
       setAccessToken(accessToken || "");
 

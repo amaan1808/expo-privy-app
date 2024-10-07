@@ -5,14 +5,16 @@ import { usePersistentStore } from "@store";
 import * as Linking from "expo-linking";
 import { usePrivy } from "@privy-io/expo";
 import { privy } from "./_layout";
+import * as SecureStore from "expo-secure-store";
 
 export default function Index() {
   const url = Linking.useURL();
-  const { isReady } = usePrivy();
+  const { isReady, getAccessToken } = usePrivy();
   const rootNavigationState = useRootNavigationState();
   const { accessToken, setAccessToken } = usePersistentStore();
   const checkRoute = async () => {
-    const accessTokenPrivy = await privy.getAccessToken();
+    console.log(await SecureStore.getItemAsync("privy-token"));
+    const accessTokenPrivy = await getAccessToken();
     console.log(accessTokenPrivy, "accessTokenPrivy");
     if (isReady && accessTokenPrivy) {
       setAccessToken(accessTokenPrivy || "");
