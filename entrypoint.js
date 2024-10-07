@@ -1,11 +1,8 @@
-import "text-encoding-polyfill";
-import "react-native-get-random-values";
-import "@ethersproject/shims";
-import "fast-text-encoding";
+// entrypoint.js
 
-import { Buffer } from "buffer";
-global.TextEncoder = require("text-encoding").TextEncoder;
-global.Buffer = Buffer;
-
+// Import required polyfills first
+import 'fast-text-encoding';
+import 'react-native-get-random-values';
+import '@ethersproject/shims';
 // Then import the expo router
-import "expo-router/entry";
+import 'expo-router/entry';
